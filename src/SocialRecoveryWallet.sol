@@ -7,32 +7,14 @@ contract SocialRecoveryWallet is Ownable {
 
     uint256 constant MAX_MEMBERS = 10;
 
-    // Transaction count
-    uint256 public transactionCount;
-
-    // No. of required signers
-    uint256 public requiredSigners;
-
     // Family members
     address[] public familyMembers;
 
-    // Transaction struct
-    struct Transaction {
-        address target;
-        uint256 value;
-        uint256 signedBy;
-        bytes data;
-        bool executed;
-    }
+    // Possible future addresses - addresses that could claim the ownership if the main address is lost
+    address[] public possibleFutureAddresses;
 
     // Already a family member
     mapping(address => bool) public isFamilyMember;
-
-    // Approved target contracts
-    mapping(address => bool) public approvedTargets;
-
-    // Transactions
-    mapping(uint256 => Transaction) public transactions;
 
     // Custom errors
     error NotFamilyMember(address wallet);
