@@ -14,6 +14,8 @@ contract SocialRecoveryWallet is Ownable {
     // Possible future addresses - addresses that could claim the ownership if the main address is lost
     address[] public possibleFutureAddresses;
 
+    // Yes, I know I could use bitmaps, but for this case with a small amount of members and possible addresses, it's not worth it
+
     // Already a family member
     mapping(address => bool) public isFamilyMember;
 
